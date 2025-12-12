@@ -15,28 +15,29 @@ export default function NavBar() {
   ];
 
   return (
-    <div className="fixed top-6 left-0 right-0 z-50 px-4 flex justify-center md:justify-center">
-      
-      {/* DESKTOP NAV */}
-      <nav className="hidden md:flex glass-card px-10 py-4 rounded-full text-white shadow-2xl backdrop-blur-xl space-x-10">
-        {navItems.map((item) => (
-          <Link
-            key={item.name}
-            to={item.path}
-            className={`text-lg transition ${
-              location.pathname === item.path
-                ? "text-blue-200 font-semibold"
-                : "hover:text-blue-300"
-            }`}
-          >
-            {item.name}
-          </Link>
-        ))}
-      </nav>
+    <>
+      {/* DESKTOP NAV (centered, fixed) */}
+      <div className="fixed top-6 left-0 right-0 z-50 px-4 hidden md:flex justify-center">
+        <nav className="glass-card px-10 py-4 rounded-full text-white shadow-2xl backdrop-blur-xl space-x-10">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              to={item.path}
+              className={`text-lg transition ${
+                location.pathname === item.path
+                  ? "text-blue-200 font-semibold"
+                  : "hover:text-blue-300"
+              }`}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </nav>
+      </div>
 
-      {/* MOBILE MENU BUTTON — Left aligned */}
+      {/* MOBILE MENU BUTTON — FIXED TOP-LEFT */}
       <button
-        className="md:hidden glass-card px-6 py-3 rounded-full text-white shadow-xl backdrop-blur-xl absolute left-4 flex items-center space-x-2"
+        className="md:hidden fixed top-6 left-4 z-[60] glass-card px-6 py-3 rounded-full text-white shadow-xl backdrop-blur-xl flex items-center space-x-2"
         onClick={() => setIsOpen(true)}
       >
         <span className="text-lg">Menu</span>
@@ -55,7 +56,7 @@ export default function NavBar() {
               onClick={() => setIsOpen(false)}
             />
 
-            {/* LEFT-SIDE MENU PANEL */}
+            {/* Left slide-in panel */}
             <motion.div
               initial={{ x: -220, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -63,7 +64,6 @@ export default function NavBar() {
               transition={{ type: "spring", stiffness: 110 }}
               className="fixed top-0 left-0 h-full w-72 glass-card p-8 pt-16 rounded-r-3xl shadow-2xl text-white z-50"
             >
-              {/* Close button inside menu */}
               <button
                 className="absolute top-5 right-5 text-3xl text-white/80 hover:text-white transition"
                 onClick={() => setIsOpen(false)}
@@ -91,6 +91,6 @@ export default function NavBar() {
           </>
         )}
       </AnimatePresence>
-    </div>
+    </>
   );
 }
