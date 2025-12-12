@@ -1,111 +1,95 @@
-import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
 
 export default function NavBar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
-  // Close menu on route change
-  useEffect(() => {
-    const close = () => setMenuOpen(false);
-    window.addEventListener("hashchange", close);
-    return () => window.removeEventListener("hashchange", close);
-  }, []);
+  const navItems = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Projects", path: "/projects" },
+    { name: "Blog", path: "/blog" },
+    { name: "Contact", path: "/contact" },
+  ];
 
   return (
-    <>
-      {/* TOP NAVBAR */}
-      <motion.nav
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="
-          fixed top-4 left-1/2 -translate-x-1/2 z-50
-          flex items-center justify-between
-          w-[92%] sm:w-max
-          px-4 py-2
-          rounded-full
-          backdrop-blur-2xl bg-white/15 border border-white/20
-          shadow-[0_8px_32px_rgba(0,0,0,0.3)]
-        "
+    <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full flex justify-center px-4">
+      {/* DESKTOP NAV */}
+      <nav className="hidden md:flex glass-card px-10 py-4 rounded-full text-white shadow-2xl space-x-10 backdrop-blur-xl">
+        {navItems.map((item) => (
+          <Link
+            key={item.name}
+            to={item.path}
+            className={`text-lg transition ${
+              location.pathname === item.path
+                ? "text-blue-200 font-semibold"
+                : "hover:text-blue-300"
+            }`}
+          >
+            {item.name}
+          </Link>
+        ))}
+      </nav>
+
+      {/* MOBILE NAV BUTTON */}
+      <button
+        className="md:hidden glass-card px-6 py-3 rounded-full text-white shadow-xl backdrop-blur-xl"
+        onClick={() => setIsOpen(true)}
       >
-        {/* MOBILE MENU BUTTON */}
-        <div className="sm:hidden">
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="text-white focus:outline-none"
-          >
-            {menuOpen ? (
-              <span className="text-2xl">✕</span>
-            ) : (
-              <span className="text-2xl">☰</span>
-            )}
-          </button>
-        </div>
+        ☰
+      </button>
 
-        {/* DESKTOP NAV LINKS */}
-        <div className="hidden sm:flex items-center gap-10 text-white text-lg">
-          <NavItem to="/">Home</NavItem>
-          <NavItem to="/about">About</NavItem>
-          <NavItem to="/projects">Projects</NavItem>
-          <NavItem to="/blog">Blog</NavItem>
-          <NavItem to="/contact">Contact</NavItem>
-        </div>
-      </motion.nav>
-
-      {/* MOBILE DROPDOWN MENU */}
+      {/* MOBILE MENU OVERLAY */}
       <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.25 }}
-            className="
-              sm:hidden fixed top-20 left-1/2 -translate-x-1/2
-              w-[92%] rounded-2xl px-6 py-4 
-              backdrop-blur-2xl bg-white/20 border border-white/20
-              shadow-xl text-white text-lg space-y-4 z-40
-            "
-          >
-            <MobileNavItem to="/" label="Home" />
-            <MobileNavItem to="/about" label="About" />
-            <MobileNavItem to="/projects" label="Projects" />
-            <MobileNavItem to="/blog" label="Blog" />
-            <MobileNavItem to="/contact" label="Contact" />
-          </motion.div>
+        {isOpen && (
+          <>
+            {/* Background dim */}
+            <motion.div
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+            />
+
+            {/* LEFT-SIDE MENU PANEL */}
+            <motion.div
+              initial={{ x: -200, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -200, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 120 }}
+              className="fixed top-0 left-0 h-full w-72 glass-card p-8 pt-14 rounded-r-3xl shadow-2xl text-white z-50"
+            >
+              {/* Close button */}
+              <button
+                className="absolute top-5 right-5 text-3xl text-white/80 hover:text-white transition"
+                onClick={() => setIsOpen(false)}
+              >
+                ×
+              </button>
+
+              <div className="flex flex-col space-y-6 mt-4">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`text-xl transition ${
+                      location.pathname === item.path
+                        ? "text-blue-200 font-semibold"
+                        : "hover:text-blue-300"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
-    </>
-  );
-}
-
-function NavItem({ to, children }) {
-  return (
-    <NavLink
-      to={to}
-      className={({ isActive }) =>
-        isActive ? "text-blue-200 font-semibold" : "text-white"
-      }
-    >
-      <motion.span
-        whileHover={{ scale: 1.08, y: -1 }}
-        transition={{ type: "spring", stiffness: 300 }}
-        className="hover:text-blue-200"
-      >
-        {children}
-      </motion.span>
-    </NavLink>
-  );
-}
-
-function MobileNavItem({ to, label }) {
-  return (
-    <NavLink
-      to={to}
-      className="block w-full py-2 text-white hover:text-blue-200 text-center"
-    >
-      {label}
-    </NavLink>
+    </div>
   );
 }
