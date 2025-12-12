@@ -57,7 +57,7 @@ export default function Projects() {
 
           {/* PROJECT CARD 5 */}
           <ProjectCard
-            title="PrivateScribe Web – Medical Documentation Assistant"
+            title="PrivateScribe Web –"
             link="https://github.com/bashir-abubakar/privatescribe-web"
           />
 
