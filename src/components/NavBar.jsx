@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import MobileMenuButton from "./MobileMenuButton";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,13 +17,8 @@ export default function NavBar() {
 
   return (
     <>
-      {/* FIXED MOBILE MENU BUTTON (always stays visible) */}
-      <button
-        className="md:hidden fixed top-6 left-4 z-[9999] glass-card px-6 py-3 rounded-full text-white shadow-xl backdrop-blur-xl"
-        onClick={() => setIsOpen(true)}
-      >
-        Menu
-      </button>
+      {/* MOBILE MENU BUTTON RENDERED IN PORTAL */}
+      <MobileMenuButton onClick={() => setIsOpen(true)} />
 
       {/* DESKTOP NAVBAR */}
       <div className="hidden md:flex fixed top-6 left-1/2 -translate-x-1/2 z-[5000] px-4">
@@ -43,10 +39,11 @@ export default function NavBar() {
         </nav>
       </div>
 
-      {/* MOBILE MENU OVERLAY */}
+      {/* MOBILE MENU OVERLAY + SLIDE-IN PANEL */}
       <AnimatePresence>
         {isOpen && (
           <>
+            {/* Dim Background */}
             <motion.div
               className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[9000]"
               initial={{ opacity: 0 }}
@@ -55,7 +52,7 @@ export default function NavBar() {
               onClick={() => setIsOpen(false)}
             />
 
-            {/* Slide-in Left Menu */}
+            {/* Slide-in Panel */}
             <motion.div
               initial={{ x: -260, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -63,6 +60,7 @@ export default function NavBar() {
               transition={{ type: "spring", stiffness: 110 }}
               className="fixed top-0 left-0 h-full w-72 glass-card p-8 pt-16 rounded-r-3xl shadow-2xl text-white z-[9500]"
             >
+              {/* Close Button */}
               <button
                 className="absolute top-5 right-5 text-3xl text-white/80 hover:text-white transition"
                 onClick={() => setIsOpen(false)}
