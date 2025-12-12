@@ -15,9 +15,10 @@ export default function NavBar() {
   ];
 
   return (
-    <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full flex justify-center px-4">
+    <div className="fixed top-6 left-0 right-0 z-50 px-4 flex justify-center md:justify-center">
+      
       {/* DESKTOP NAV */}
-      <nav className="hidden md:flex glass-card px-10 py-4 rounded-full text-white shadow-2xl space-x-10 backdrop-blur-xl">
+      <nav className="hidden md:flex glass-card px-10 py-4 rounded-full text-white shadow-2xl backdrop-blur-xl space-x-10">
         {navItems.map((item) => (
           <Link
             key={item.name}
@@ -33,12 +34,12 @@ export default function NavBar() {
         ))}
       </nav>
 
-      {/* MOBILE NAV BUTTON */}
+      {/* MOBILE MENU BUTTON — Left aligned */}
       <button
-        className="md:hidden glass-card px-6 py-3 rounded-full text-white shadow-xl backdrop-blur-xl"
+        className="md:hidden glass-card px-6 py-3 rounded-full text-white shadow-xl backdrop-blur-xl absolute left-4 flex items-center space-x-2"
         onClick={() => setIsOpen(true)}
       >
-        ☰
+        <span className="text-lg">Menu</span>
       </button>
 
       {/* MOBILE MENU OVERLAY */}
@@ -56,13 +57,13 @@ export default function NavBar() {
 
             {/* LEFT-SIDE MENU PANEL */}
             <motion.div
-              initial={{ x: -200, opacity: 0 }}
+              initial={{ x: -220, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              exit={{ x: -200, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 120 }}
-              className="fixed top-0 left-0 h-full w-72 glass-card p-8 pt-14 rounded-r-3xl shadow-2xl text-white z-50"
+              exit={{ x: -220, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 110 }}
+              className="fixed top-0 left-0 h-full w-72 glass-card p-8 pt-16 rounded-r-3xl shadow-2xl text-white z-50"
             >
-              {/* Close button */}
+              {/* Close button inside menu */}
               <button
                 className="absolute top-5 right-5 text-3xl text-white/80 hover:text-white transition"
                 onClick={() => setIsOpen(false)}
