@@ -2,10 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <script>
-      // Redirect all 404 paths back to index.html
-      sessionStorage.redirect = location.href;
-      window.location.replace("/");
+    <script type="text/javascript">
+      // GitHub Pages SPA redirect script
+      (function() {
+        var redirect = sessionStorage.getItem("redirect");
+        if (!redirect) {
+          var path = window.location.pathname;
+          sessionStorage.setItem("redirect", path);
+        }
+        window.location.replace("/");
+      })();
     </script>
   </head>
   <body></body>
