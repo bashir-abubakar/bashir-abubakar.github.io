@@ -5,13 +5,12 @@
     <title>Redirecting…</title>
 
     <script>
-      // Capture the full broken GitHub Pages route
-      var redirect = window.location.pathname + window.location.search + window.location.hash;
+      // Save broken path (GitHub Pages always gives pathname)
+      const redirect = window.location.pathname;
 
-      // Save it so App.jsx can handle it
       sessionStorage.setItem("redirect", redirect);
 
-      // Redirect to root (because Vite base is "/")
+      // Send user back to root of SPA
       window.location.replace("/");
     </script>
   </head>

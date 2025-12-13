@@ -5,9 +5,8 @@
 
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/copy-routes.js",
+    "build": "vite build && cp 404.html dist/404.html",
     "preview": "vite preview",
-
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
