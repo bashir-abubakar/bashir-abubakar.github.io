@@ -1,12 +1,11 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// GitHub USER PAGE requires base: "/"
 export default defineConfig({
   plugins: [react()],
   
-  // DO NOT change this — your domain matches your repo name
-  base: "/", 
+  // Correct base path for a GitHub user site:
+  base: "/bashir-abubakar.github.io/",
 
   build: {
     outDir: "dist",
