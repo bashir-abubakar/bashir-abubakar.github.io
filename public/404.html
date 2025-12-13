@@ -9,14 +9,12 @@
 
     <script type="text/javascript">
       (function () {
-        // Capture the original path (e.g., /about, /projects)
-        var path = window.location.pathname;
 
-        // Save it so App.jsx can read it
-        sessionStorage.setItem("redirect", path);
+        // Save original URL so React can route correctly
+        sessionStorage.setItem("redirect", window.location.pathname);
 
-        // Redirect to the root for SPA handling
-        window.location.href = "/bashir-abubakar.github.io/";
+        // Redirect RELATIVE to the site root (works on GitHub Pages)
+        window.location.replace("./");
       })();
     </script>
   </body>
