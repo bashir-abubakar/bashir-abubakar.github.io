@@ -6,52 +6,54 @@ import { motion } from "framer-motion";
 export default function App() {
   const navigate = useNavigate();
 
-  //
-  // -----------------------------------------------------
-  // FIX FOR GITHUB PAGES REFRESH 404 ROUTE HANDLING
-  // -----------------------------------------------------
-  //
+  // --------------------------------------------------------------------
+  // FIX FOR GITHUB PAGES REFRESH + 404 ROUTES
+  // --------------------------------------------------------------------
   useEffect(() => {
     const redirect = sessionStorage.getItem("redirect");
+
     if (redirect) {
       sessionStorage.removeItem("redirect");
 
+      // Remove full domain if present
       const cleaned = redirect.replace(window.location.origin, "");
-      navigate(cleaned, { replace: true });
+
+      // Ensure a valid route (default to homepage)
+      const safePath = cleaned && cleaned !== "" ? cleaned : "/";
+
+      navigate(safePath, { replace: true });
     }
   }, [navigate]);
 
   return (
     <>
-      {/* ---------------------------------------------------------------- */}
-      {/* SEO: PAGE-LEVEL METADATA USING REACT HELMET                     */}
-      {/* ---------------------------------------------------------------- */}
+      {/* ================================================================== */}
+      {/* SEO: DEFAULT PAGE METADATA (HOME PAGE) */}
+      {/* ================================================================== */}
       <Helmet>
-        <title>
-          Bashir Abubakar — NHS Mental Health Data Analyst & AI Practitioner
-        </title>
+        <title>Bashir Abubakar — NHS Mental Health Data Analyst & AI Practitioner</title>
 
         <meta
           name="description"
-          content="Welcome to the official website of Bashir Abubakar — NHS Mental Health Data Analyst specialising in AI, NLP, predictive modelling, sustainability and healthcare innovation."
+          content="Official website of Bashir Abubakar — NHS Mental Health Data Analyst specialising in AI, NLP, predictive modelling, sustainability and healthcare innovation."
         />
 
         <meta
           name="keywords"
-          content="Bashir Abubakar, Data Scientist, NHS, Mental Health Data Analyst, AI, Machine Learning, NLP, Predictive Modelling, Healthcare Analytics, Sustainability, Youth Leadership"
+          content="Bashir Abubakar, Data Scientist, NHS, Mental Health, AI, Machine Learning, NLP, Predictive Modelling, Healthcare Analytics, Sustainability"
         />
 
-        {/* OpenGraph for LinkedIn / Facebook */}
+        {/* OpenGraph */}
         <meta property="og:title" content="Bashir Abubakar — Data Scientist & Mental Health Analyst" />
         <meta
           property="og:description"
-          content="Portfolio, projects, research and insights from Bashir Abubakar — applied AI specialist and NHS Mental Health Data Analyst."
+          content="Portfolio, research, projects and insights from Bashir Abubakar — applied AI specialist and NHS Mental Health Data Analyst."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://bashir-abubakar.github.io/" />
         <meta property="og:image" content="https://bashir-abubakar.github.io/og-image.png" />
 
-        {/* Twitter Card */}
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Bashir Abubakar — Data Scientist & Analyst" />
         <meta
@@ -61,35 +63,42 @@ export default function App() {
         <meta name="twitter:image" content="https://bashir-abubakar.github.io/og-image.png" />
       </Helmet>
 
-      {/* ---------------------------------------------------------------- */}
-      {/* PAGE LAYOUT                                                     */}
-      {/* ---------------------------------------------------------------- */}
+      {/* ================================================================== */}
+      {/* MAIN PAGE LAYOUT */}
+      {/* ================================================================== */}
       <div
-        className="min-h-screen flex items-start justify-center pt-32 px-6 pb-10 
-        bg-gradient-to-br from-[#0f1f3d] via-[#1e3d7b] to-[#4a78e2]"
+        className="
+          min-h-screen flex items-start justify-center 
+          pt-32 px-6 pb-10
+          bg-gradient-to-br from-[#0f1f3d] via-[#1e3d7b] to-[#4a78e2]
+        "
       >
-
-        {/* PAGE GRID — TWO COLUMNS */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 w-full max-w-7xl">
-
-          {/* LEFT COLUMN — PROFILE + BIO */}
+          
+          {/* LEFT SECTION: BIO */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2 }}
-            className="glass-card lg:col-span-2 text-white p-10 md:p-14 shadow-2xl rounded-3xl leading-relaxed"
+            className="glass-card lg:col-span-2 text-white 
+                       p-10 md:p-14 shadow-2xl rounded-3xl leading-relaxed"
           >
-            {/* PROFILE PHOTO */}
             <div className="flex justify-center mb-10">
-              <img 
-                src="/images/me.jpg" 
+              <img
+                src="/images/me.jpg"
                 alt="Bashir Abubakar"
-                className="w-40 h-40 object-cover rounded-full shadow-xl border border-white/40 backdrop-blur-xl"
+                className="w-40 h-40 object-cover rounded-full 
+                           shadow-xl border border-white/40 backdrop-blur-xl"
               />
             </div>
 
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-200 to-blue-400 
-                           bg-clip-text text-transparent mb-8 text-center">
+            <h1
+              className="
+                text-5xl font-bold text-center 
+                bg-gradient-to-r from-blue-200 to-blue-400 
+                bg-clip-text text-transparent mb-8
+              "
+            >
               Hi, I'm Bashir
             </h1>
 
@@ -139,22 +148,26 @@ export default function App() {
             </p>
           </motion.div>
 
-          {/* RIGHT COLUMN — BLOG POSTS */}
+          {/* RIGHT SECTION: BLOG PREVIEW */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.3 }}
             className="glass-card p-8 rounded-3xl shadow-2xl text-white h-fit"
           >
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-200 to-blue-400 
-                           bg-clip-text text-transparent mb-6">
+            <h2
+              className="
+                text-3xl font-bold mb-6 
+                bg-gradient-to-r from-blue-200 to-blue-400 
+                bg-clip-text text-transparent
+              "
+            >
               Recent Blog Posts
             </h2>
 
             <div className="space-y-8">
-
-              {/* NHS-R POST */}
-              <motion.a 
+              {/* BLOG CARD 1 */}
+              <motion.a
                 href="https://nhsrcommunity.com/blog/radiology_nlp.html"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -163,25 +176,23 @@ export default function App() {
                 className="block"
               >
                 <div className="flex items-start space-x-4">
-                  <img 
-                    src="/images/blog_nhsr.png" 
+                  <img
+                    src="/images/blog_nhsr.png"
                     alt="NHS-R blog"
-                    className="w-20 h-20 rounded-xl object-cover shadow-lg border border-white/30"
+                    className="w-20 h-20 rounded-xl object-cover 
+                               shadow-lg border border-white/30"
                   />
                   <div>
                     <h3 className="text-xl font-semibold underline hover:text-blue-300">
                       Using NLP to Analyse Radiology Reports
                     </h3>
                     <p className="text-blue-200 text-base">NHS-R Community</p>
-                    <span className="text-blue-300 font-medium text-sm mt-1 inline-block">
-                      Read more →
-                    </span>
                   </div>
                 </div>
               </motion.a>
 
-              {/* MEDIUM POST */}
-              <motion.a 
+              {/* BLOG CARD 2 */}
+              <motion.a
                 href="https://medium.com/@bashir.abubakar2009/reflections-from-the-one-young-world-summit-munich-2025-youth-leadership-mental-health-and-the-8d26509074d2"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -190,8 +201,8 @@ export default function App() {
                 className="block"
               >
                 <div className="flex items-start space-x-4">
-                  <img 
-                    src="/images/blog_medium.png" 
+                  <img
+                    src="/images/blog_medium.png"
                     alt="Medium blog"
                     className="w-20 h-20 rounded-xl object-cover shadow-lg border border-white/30"
                   />
@@ -200,9 +211,6 @@ export default function App() {
                       Reflections from the One Young World Summit
                     </h3>
                     <p className="text-blue-200 text-base">Medium</p>
-                    <span className="text-blue-300 font-medium text-sm mt-1 inline-block">
-                      Read more →
-                    </span>
                   </div>
                 </div>
               </motion.a>
