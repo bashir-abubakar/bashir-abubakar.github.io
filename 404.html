@@ -1,21 +1,18 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Redirecting…</title>
-  </head>
-  <body>
-    <p>Redirecting…</p>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirecting…</title>
+</head>
+<body>
+  <p>Redirecting…</p>
 
-    <script type="text/javascript">
-      (function () {
+  <script>
+    // Preserve attempted path
+    sessionStorage.setItem("redirect", window.location.pathname);
 
-        // Save original URL so React can route correctly
-        sessionStorage.setItem("redirect", window.location.pathname);
-
-        // Redirect RELATIVE to the site root (works on GitHub Pages)
-        window.location.replace("./");
-      })();
-    </script>
-  </body>
+    // Always load the SPA entry point
+    window.location.replace("/");
+  </script>
+</body>
 </html>
