@@ -2,13 +2,16 @@
   "name": "bashir-apple-site",
   "version": "1.0.0",
   "private": true,
+
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/copy-routes.js",
     "preview": "vite preview",
+
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
+
   "dependencies": {
     "framer-motion": "^10.16.4",
     "react": "^18.2.0",
@@ -16,6 +19,7 @@
     "react-helmet": "^6.1.0",
     "react-router-dom": "^6.21.0"
   },
+
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.0",
     "autoprefixer": "^10.4.15",
