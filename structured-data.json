@@ -2,16 +2,18 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Bashir Abubakar",
-  "url": "https://bashir-abubakar.github.io/",
-  "image": "https://bashir-abubakar.github.io/images/me.jpg",
+  "alternateName": [
+    "Bashir Abubakar (Data Scientist)",
+    "Bashir Abubakar (NHS Mental Health Analyst)",
+    "Bashir A. Abubakar UK"
+  ],
+  "description": "UK-based Mental Health Data Analyst specialising in AI and healthcare analytics.",
+  "disambiguatingDescription": "Not the Nigerian politician. UK-based Data Scientist working in the NHS.",
   "jobTitle": "Mental Health Data Analyst",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "NHS"
-  },
+  "url": "https://bashir-abubakar.github.io/",
+  "worksFor": { "@type": "Organization", "name": "NHS" },
   "sameAs": [
     "https://linkedin.com/in/bashir-abubakar-61935417b/",
     "https://github.com/bashir-abubakar"
-  ],
-  "description": "Bashir Abubakar is a Mental Health Data Analyst specialising in applied AI, natural language processing, predictive modelling and healthcare innovation. He works across NHS services to improve urgent and emergency care, analyse patient pathways and support data-driven decision making. His work integrates responsible AI, global health, and sustainability, reflecting his experience as a delegate at COP28 and One Young World Ambassador."
+  ]
 }
