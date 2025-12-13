@@ -1,69 +1,105 @@
+import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 
 export default function Projects() {
   return (
-    <div
-      className="
-        min-h-screen w-full
-        bg-gradient-to-br from-[#0f1f3d] via-[#1e3d7b] to-[#4a78e2]
-        pt-24 sm:pt-28 md:pt-32
-        px-4 sm:px-6 pb-14
-      "
-    >
-      <div className="max-w-5xl mx-auto">
+    <>
+      {/* ------------------------------------------------------------- */}
+      {/* SEO — React Helmet for Projects Page                          */}
+      {/* ------------------------------------------------------------- */}
+      <Helmet>
+        <title>Projects — Bashir Abubakar</title>
 
-        {/* PAGE TITLE */}
-        <motion.h1
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="
-            text-4xl sm:text-5xl font-bold 
-            text-center 
-            bg-gradient-to-r from-blue-200 to-blue-400 
-            bg-clip-text text-transparent 
-            mb-10 sm:mb-14
-          "
-        >
-          Projects
-        </motion.h1>
+        <meta
+          name="description"
+          content="Explore machine learning, NLP, healthcare analytics, and AI projects created by Bashir Abubakar, including Kaggle notebooks, predictive modelling and web applications."
+        />
 
-        {/* PROJECT LIST */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+        <meta
+          name="keywords"
+          content="Bashir Abubakar Projects, AI Projects, Machine Learning Portfolio, NLP Projects, Healthcare Analytics, Data Science Portfolio, Kaggle, Predictive Modelling"
+        />
 
-          {/* PROJECT CARD 1 */}
-          <ProjectCard
-            title="Human Resources Analytics – Employee Attrition"
-            link="https://www.kaggle.com/code/bashirabubakar/human-resources-analytics-employee-attrition"
-          />
+        {/* Open Graph */}
+        <meta property="og:title" content="Projects — Bashir Abubakar" />
+        <meta
+          property="og:description"
+          content="Browse the full list of data science, AI, machine learning and healthcare analytics projects by Bashir Abubakar."
+        />
+        <meta property="og:url" content="https://bashir-abubakar.github.io/projects" />
+        <meta property="og:image" content="https://bashir-abubakar.github.io/og-image.png" />
 
-          {/* PROJECT CARD 2 */}
-          <ProjectCard
-            title="Predicting Breast Cancer – Logistic Regression"
-            link="https://www.kaggle.com/code/bashirabubakar/predicting-breast-cancer-logistic-regression"
-          />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Projects — Bashir Abubakar" />
+        <meta
+          name="twitter:description"
+          content="Explore AI, NLP, healthcare analytics and data science projects by Bashir Abubakar."
+        />
+        <meta name="twitter:image" content="https://bashir-abubakar.github.io/og-image.png" />
+      </Helmet>
 
-          {/* PROJECT CARD 3 */}
-          <ProjectCard
-            title="Predicting Breast Cancer – KNN Classification"
-            link="https://www.kaggle.com/code/bashirabubakar/predicting-breast-cancer-knn-classification"
-          />
+      {/* ------------------------------------------------------------- */}
+      {/* PAGE CONTENT                                                  */}
+      {/* ------------------------------------------------------------- */}
+      <div
+        className="
+          min-h-screen w-full
+          bg-gradient-to-br from-[#0f1f3d] via-[#1e3d7b] to-[#4a78e2]
+          pt-24 sm:pt-28 md:pt-32
+          px-4 sm:px-6 pb-14
+        "
+      >
+        <div className="max-w-5xl mx-auto">
 
-          {/* PROJECT CARD 4 */}
-          <ProjectCard
-            title="Biomechanical Features of Orthopedic Patients"
-            link="https://www.kaggle.com/code/bashirabubakar/biomechanical-features-of-orthopedic-patients"
-          />
+          {/* PAGE TITLE */}
+          <motion.h1
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="
+              text-4xl sm:text-5xl font-bold 
+              text-center 
+              bg-gradient-to-r from-blue-200 to-blue-400 
+              bg-clip-text text-transparent 
+              mb-10 sm:mb-14
+            "
+          >
+            Projects
+          </motion.h1>
 
-          {/* PROJECT CARD 5 */}
-          <ProjectCard
-            title="PrivateScribe Web –"
-            link="https://github.com/bashir-abubakar/privatescribe-web"
-          />
+          {/* PROJECT LIST */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
 
+            <ProjectCard
+              title="Human Resources Analytics – Employee Attrition"
+              link="https://www.kaggle.com/code/bashirabubakar/human-resources-analytics-employee-attrition"
+            />
+
+            <ProjectCard
+              title="Predicting Breast Cancer – Logistic Regression"
+              link="https://www.kaggle.com/code/bashirabubakar/predicting-breast-cancer-logistic-regression"
+            />
+
+            <ProjectCard
+              title="Predicting Breast Cancer – KNN Classification"
+              link="https://www.kaggle.com/code/bashirabubakar/predicting-breast-cancer-knn-classification"
+            />
+
+            <ProjectCard
+              title="Biomechanical Features of Orthopedic Patients"
+              link="https://www.kaggle.com/code/bashirabubakar/biomechanical-features-of-orthopedic-patients"
+            />
+
+            <ProjectCard
+              title="PrivateScribe Web Application"
+              link="https://github.com/bashir-abubakar/privatescribe-web"
+            />
+
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
