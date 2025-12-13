@@ -2,17 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <title>Redirecting…</title>
+  </head>
+  <body>
+    <p>Redirecting…</p>
+
     <script type="text/javascript">
-      // GitHub Pages SPA redirect script
-      (function() {
-        var redirect = sessionStorage.getItem("redirect");
-        if (!redirect) {
-          var path = window.location.pathname;
-          sessionStorage.setItem("redirect", path);
-        }
-        window.location.replace("/");
+      (function () {
+        // Capture the original path (e.g., /about, /projects)
+        var path = window.location.pathname;
+
+        // Save it so App.jsx can read it
+        sessionStorage.setItem("redirect", path);
+
+        // Redirect to the root for SPA handling
+        window.location.href = "/bashir-abubakar.github.io/";
       })();
     </script>
-  </head>
-  <body></body>
+  </body>
 </html>
