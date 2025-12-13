@@ -1,21 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Redirecting…</title>
 
     <script>
-      // Save the path Googlebot or browser visited
-      var redirectPath = window.location.pathname;
+      // Capture the full broken GitHub Pages route
+      var redirect = window.location.pathname + window.location.search + window.location.hash;
 
-      // Remove the base path
-      redirectPath = redirectPath.replace("/bashir-abubakar.github.io", "");
+      // Save it so App.jsx can handle it
+      sessionStorage.setItem("redirect", redirect);
 
-      // Build the new clean URL
-      sessionStorage.setItem("redirect", redirectPath);
-
-      // Redirect to the SPA root
-      window.location = "/bashir-abubakar.github.io/";
+      // Redirect to root (because Vite base is "/")
+      window.location.replace("/");
     </script>
   </head>
 
