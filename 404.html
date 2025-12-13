@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting…</title>
+
+    <script>
+      // Save broken path (GitHub Pages always gives pathname)
+      const redirect = window.location.pathname;
+
+      sessionStorage.setItem("redirect", redirect);
+
+      // Send user back to root of SPA
+      window.location.replace("/");
+    </script>
+  </head>
+
+  <body>
+    Redirecting…
+  </body>
+</html>
