@@ -33,19 +33,16 @@ export default function App() {
 
         <meta
           name="description"
-          content="Welcome to the official website of Bashir Abubakar — NHS Mental Health Data Analyst specialising in AI, NLP, predictive modelling, sustainability, climate resilience and healthcare innovation."
+          content="Welcome to the official website of Bashir Abubakar — NHS Mental Health Data Analyst specialising in AI, NLP, predictive modelling, sustainability and healthcare innovation."
         />
 
         <meta
           name="keywords"
-          content="Bashir Abubakar, NHS, Mental Health Data Analyst, Data Scientist, AI, Machine Learning, NLP, Predictive Modelling, Sustainability, Youth Leadership, Climate Resilience, Healthcare Analytics"
+          content="Bashir Abubakar, Data Scientist, NHS, Mental Health Data Analyst, AI, Machine Learning, NLP, Predictive Modelling, Healthcare Analytics, Sustainability, Youth Leadership"
         />
 
-        {/* OpenGraph */}
-        <meta
-          property="og:title"
-          content="Bashir Abubakar — Data Scientist & Mental Health Analyst"
-        />
+        {/* OpenGraph for LinkedIn / Facebook */}
+        <meta property="og:title" content="Bashir Abubakar — Data Scientist & Mental Health Analyst" />
         <meta
           property="og:description"
           content="Portfolio, projects, research and insights from Bashir Abubakar — applied AI specialist and NHS Mental Health Data Analyst."
@@ -54,20 +51,14 @@ export default function App() {
         <meta property="og:url" content="https://bashir-abubakar.github.io/" />
         <meta property="og:image" content="https://bashir-abubakar.github.io/og-image.png" />
 
-        {/* Twitter */}
+        {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Bashir Abubakar — Data Scientist & Analyst"
-        />
+        <meta name="twitter:title" content="Bashir Abubakar — Data Scientist & Analyst" />
         <meta
           name="twitter:description"
           content="NHS Mental Health Data Analyst applying AI and analytics for public good."
         />
-        <meta
-          name="twitter:image"
-          content="https://bashir-abubakar.github.io/og-image.png"
-        />
+        <meta name="twitter:image" content="https://bashir-abubakar.github.io/og-image.png" />
       </Helmet>
 
       {/* ---------------------------------------------------------------- */}
@@ -77,6 +68,8 @@ export default function App() {
         className="min-h-screen flex items-start justify-center pt-32 px-6 pb-10 
         bg-gradient-to-br from-[#0f1f3d] via-[#1e3d7b] to-[#4a78e2]"
       >
+
+        {/* PAGE GRID — TWO COLUMNS */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 w-full max-w-7xl">
 
           {/* LEFT COLUMN — PROFILE + BIO */}
@@ -100,43 +93,36 @@ export default function App() {
               Hi, I'm Bashir
             </h1>
 
-            {/* -------------------------------------------------------------- */}
-            {/* FULL BIO — NOTHING OMITTED                                    */}
-            {/* -------------------------------------------------------------- */}
-            <p className="text-blue-100 text-lg leading-relaxed">
-
-              Bashir Abubakar is a Mental Health Data Analyst within the NHS who is
-              dedicated to using data science, artificial intelligence, and responsible
-              innovation to improve health outcomes. His work focuses on applying advanced
-              analytics, natural language processing, and predictive modelling to understand
-              patient pathways, identify inequalities, and strengthen decision-making across
-              urgent and emergency care settings.
+            <p className="text-blue-100 text-lg">
+              Bashir Abubakar is a Mental Health Data Analyst within the NHS who is dedicated 
+              to using data science, artificial intelligence and responsible innovation to 
+              improve health outcomes. He specialises in advanced analytics, natural language 
+              processing and predictive modelling to understand patient pathways, identify 
+              inequalities and strengthen decision-making across urgent and emergency care.
               <br /><br />
 
-              He is deeply committed to the intersection of sustainability, global health,
-              and technology—exploring how AI can support climate-resilient health systems
-              and empower young people to shape data-driven solutions for their communities.
-              His work reflects a belief in ethical AI, public health equity, and youth
+              He is deeply committed to the intersection of sustainability, global health and 
+              technology, exploring how AI can support climate-resilient health systems and 
+              empower young people to shape data-driven solutions for their communities. His 
+              work reflects a strong belief in ethical AI, public health equity and youth 
               leadership as catalysts for long-term systems change.
               <br /><br />
 
-              Bashir has represented youth voices on international platforms, including
-              serving as a delegate at COP28 and attending the One Young World Summit.
-              These global experiences have shaped his commitment to bridging data,
-              climate resilience, and social justice—and ensuring emerging technologies
-              benefit communities fairly and sustainably.
+              Bashir has represented youth voices on major international platforms, including 
+              serving as a delegate at COP28 and attending the One Young World Summit. These 
+              global experiences have shaped his commitment to bridging data, climate resilience 
+              and social justice, and to ensuring that emerging technologies benefit communities 
+              fairly and sustainably.
               <br /><br />
 
-              As a One Young World Ambassador, he champions initiatives that connect
-              innovation with public good. He collaborates across sectors, contributes to
-              research and health improvement programmes, and participates in hackathons
-              and innovation challenges to accelerate meaningful change.
+              As a One Young World Ambassador, he actively champions initiatives that connect 
+              innovation with public good. He collaborates across sectors, contributes to 
+              research and health improvement projects, and engages in hackathons and innovation 
+              programmes to accelerate meaningful change.
               <br /><br />
 
-              His broad portfolio spans applied AI, NHS service improvement, global youth
-              advocacy, and sustainable development. Bashir is driven by a clear purpose:
-              to build more equitable, sustainable, and future-ready systems through evidence,
-              collaboration, and responsible technology.
+              Bashir is driven by a clear purpose: to build more equitable, sustainable and 
+              future-ready systems through evidence, collaboration and responsible technology.
               <br /><br />
 
               <span className="font-semibold text-blue-200">
