@@ -24,7 +24,7 @@ export default function Blog() {
         <meta property="og:title" content="Blog — Bashir Abubakar" />
         <meta
           property="og:description"
-          content="Explore Bashir's latest blog posts on AI, healthcare, NLP, and leadership."
+          content="Explore Bashir's latest blog posts on AI, healthcare, NLP, leadership, and public-sector innovation."
         />
         <meta property="og:url" content="https://bashir-abubakar.github.io/blog" />
         <meta property="og:image" content="https://bashir-abubakar.github.io/og-image.png" />
@@ -71,18 +71,30 @@ export default function Blog() {
           {/* BLOG GRID */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
 
+            {/* NHS-R BLOG */}
             <BlogCard
               title="Using NLP to Analyse Radiology Reports"
               source="NHS-R Community"
               link="https://nhsrcommunity.com/blog/radiology_nlp.html"
               thumbnail="/images/blog_nhsr.png"
+              external
             />
 
+            {/* MEDIUM BLOG */}
             <BlogCard
               title="Reflections from the One Young World Summit"
               source="Medium"
               link="https://medium.com/@bashir.abubakar2009/reflections-from-the-one-young-world-summit-munich-2025-youth-leadership-mental-health-and-the-8d26509074d2"
               thumbnail="/images/blog_medium.png"
+              external
+            />
+
+            {/* HACKATHON BLOG (INTERNAL) */}
+            <BlogCard
+              title="Hacking Homelessness: Data, AI, and Prevention in Local Government"
+              source="GDS Local Hackathon"
+              link="/blog/hacking-homelessness"
+              thumbnail="/images/Local-Government-Innovation-Hackaton-1-1536x922.jpg"
             />
 
           </div>
@@ -96,12 +108,12 @@ export default function Blog() {
 /* Blog Card Component     */
 /* ----------------------- */
 
-function BlogCard({ title, source, link, thumbnail }) {
+function BlogCard({ title, source, link, thumbnail, external = false }) {
   return (
     <motion.a
       href={link}
-      target="_blank"
-      rel="noopener noreferrer"
+      target={external ? "_blank" : "_self"}
+      rel={external ? "noopener noreferrer" : undefined}
       whileHover={{ scale: 1.03, y: -4 }}
       transition={{ type: "spring", stiffness: 220 }}
       className="
