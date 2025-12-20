@@ -5,8 +5,9 @@
     <title>Redirecting…</title>
 
     <script>
-      // Save broken path (GitHub Pages always gives pathname)
-      const redirect = window.location.pathname;
+      // Save full path (pathname + query + hash) for SPA restore
+      const redirect =
+        window.location.pathname + window.location.search + window.location.hash;
 
       sessionStorage.setItem("redirect", redirect);
 
