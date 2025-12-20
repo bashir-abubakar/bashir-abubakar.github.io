@@ -16,13 +16,24 @@ export default function App() {
   // -----------------------------------------------------
   //
   useEffect(() => {
-    const redirect = sessionStorage.getItem("redirect");
-    if (redirect) {
-      sessionStorage.removeItem("redirect");
+    const raw = sessionStorage.getItem("redirect");
+    if (!raw) return;
 
-      const cleaned = redirect.replace(window.location.origin, "");
-      navigate(cleaned, { replace: true });
+    sessionStorage.removeItem("redirect");
+
+    let target = raw;
+
+    // If raw is a full URL, extract path; otherwise it's already a pathname
+    try {
+      const url = new URL(raw);
+      target = url.pathname + url.search + url.hash;
+    } catch {
+      // raw is likely "/blog/hacking-homelessness" - keep as-is
     }
+
+    if (!target.startsWith("/")) target = `/${target}`;
+
+    navigate(target, { replace: true });
   }, [navigate]);
 
   return (
