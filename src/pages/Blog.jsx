@@ -93,7 +93,7 @@ export default function Blog() {
             <BlogCard
               title="Hacking Homelessness: Data, AI, and Prevention in Local Government"
               source="GDS Local Hackathon"
-              link="/pages/hacking-homelessness"
+              link="/blog/hacking-homelessness"
               thumbnail="/images/Local-Government-Innovation-Hackaton-1-1536x922.jpg"
             />
 
