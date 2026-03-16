@@ -41,11 +41,13 @@ export default function App() {
       <Route path="/" element={<Home />} />
       <Route path="/blog" element={<Blog />} />
       <Route
-        path="/blog/hacking-homelessness"
+        path="/blog/hacking-homelessness/*"
         element={<HackingHomelessness />}
       />
+      <Route path="*" element={<Home />} />
     </Routes>
   );
+
 }
 
 function Home() {
