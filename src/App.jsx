@@ -47,7 +47,6 @@ export default function App() {
       <Route path="*" element={<Home />} />
     </Routes>
   );
-
 }
 
 function Home() {
@@ -111,8 +110,8 @@ function Home() {
           >
             {/* PROFILE PHOTO */}
             <div className="flex justify-center mb-10">
-              <img 
-                src="/images/me.jpg" 
+              <img
+                src="/images/me.jpg"
                 alt="Bashir Abubakar"
                 className="w-40 h-40 object-cover rounded-full shadow-xl border border-white/40 backdrop-blur-xl"
               />
@@ -124,42 +123,42 @@ function Home() {
             </h1>
 
             <p className="text-blue-100 text-lg">
-              Bashir Abubakar is a Mental Health Data Analyst within the NHS who is dedicated 
-              to using data science, artificial intelligence and responsible innovation to 
-              improve health outcomes. He specialises in advanced analytics, natural language 
-              processing and predictive modelling to understand patient pathways, identify 
+              Bashir Abubakar is a Mental Health Data Analyst within the NHS who is dedicated
+              to using data science, artificial intelligence and responsible innovation to
+              improve health outcomes. He specialises in advanced analytics, natural language
+              processing and predictive modelling to understand patient pathways, identify
               inequalities and strengthen decision-making across urgent and emergency care.
               <br /><br />
 
-              He is deeply committed to the intersection of sustainability, global health and 
-              technology, exploring how AI can support climate-resilient health systems and 
-              empower young people to shape data-driven solutions for their communities. His 
-              work reflects a strong belief in ethical AI, public health equity and youth 
+              He is deeply committed to the intersection of sustainability, global health and
+              technology, exploring how AI can support climate-resilient health systems and
+              empower young people to shape data-driven solutions for their communities. His
+              work reflects a strong belief in ethical AI, public health equity and youth
               leadership as catalysts for long-term systems change.
               <br /><br />
 
-              Bashir has represented youth voices on major international platforms, including 
-              serving as a delegate at COP28 and attending the One Young World Summit. These 
-              global experiences have shaped his commitment to bridging data, climate resilience 
-              and social justice, and to ensuring that emerging technologies benefit communities 
+              Bashir has represented youth voices on major international platforms, including
+              serving as a delegate at COP28 and attending the One Young World Summit. These
+              global experiences have shaped his commitment to bridging data, climate resilience
+              and social justice, and to ensuring that emerging technologies benefit communities
               fairly and sustainably.
               <br /><br />
 
-              As a One Young World Ambassador, he actively champions initiatives that connect 
-              innovation with public good. He collaborates across sectors, contributes to 
-              research and health improvement projects, and engages in hackathons and innovation 
+              As a One Young World Ambassador, he actively champions initiatives that connect
+              innovation with public good. He collaborates across sectors, contributes to
+              research and health improvement projects, and engages in hackathons and innovation
               programmes to accelerate meaningful change.
               <br /><br />
 
-              Bashir is driven by a clear purpose: to build more equitable, sustainable and 
+              Bashir is driven by a clear purpose: to build more equitable, sustainable and
               future-ready systems through evidence, collaboration and responsible technology.
               <br /><br />
 
               <span className="font-semibold text-blue-200">
                 LinkedIn:
-                <a 
-                  href="https://www.linkedin.com/in/bashir-abubakar-61935417b/" 
-                  target="_blank" 
+                <a
+                  href="https://www.linkedin.com/in/bashir-abubakar-61935417b/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="underline hover:text-blue-300 ml-1"
                 >
@@ -184,7 +183,7 @@ function Home() {
             <div className="space-y-8">
 
               {/* NHS-R POST */}
-              <motion.a 
+              <motion.a
                 href="https://nhsrcommunity.com/blog/radiology_nlp.html"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -193,8 +192,8 @@ function Home() {
                 className="block"
               >
                 <div className="flex items-start space-x-4">
-                  <img 
-                    src="/images/blog_nhsr.png" 
+                  <img
+                    src="/images/blog_nhsr.png"
                     alt="NHS-R blog"
                     className="w-20 h-20 rounded-xl object-cover shadow-lg border border-white/30"
                   />
@@ -235,8 +234,35 @@ function Home() {
                 </div>
               </motion.a>
 
+              {/* UK BLACK TECH POST */}
+              <motion.a
+                href="https://ukblacktech.com/defying-the-odds-the-health-tech-innovator/"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.03, x: 4 }}
+                transition={{ type: "spring", stiffness: 200 }}
+                className="block"
+              >
+                <div className="flex items-start space-x-4">
+                  <img
+                    src="/images/blog_ukblacktech.png"
+                    alt="UK Black Tech blog"
+                    className="w-20 h-20 rounded-xl object-cover shadow-lg border border-white/30"
+                  />
+                  <div>
+                    <h3 className="text-xl font-semibold underline hover:text-blue-300">
+                      Defying the Odds: The Health Tech Innovator
+                    </h3>
+                    <p className="text-blue-200 text-base">UK Black Tech</p>
+                    <span className="text-blue-300 font-medium text-sm mt-1 inline-block">
+                      Read more →
+                    </span>
+                  </div>
+                </div>
+              </motion.a>
+
               {/* MEDIUM POST */}
-              <motion.a 
+              <motion.a
                 href="https://medium.com/@bashir.abubakar2009/reflections-from-the-one-young-world-summit-munich-2025-youth-leadership-mental-health-and-the-8d26509074d2"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -245,8 +271,8 @@ function Home() {
                 className="block"
               >
                 <div className="flex items-start space-x-4">
-                  <img 
-                    src="/images/blog_medium.png" 
+                  <img
+                    src="/images/blog_medium.png"
                     alt="Medium blog"
                     className="w-20 h-20 rounded-xl object-cover shadow-lg border border-white/30"
                   />
